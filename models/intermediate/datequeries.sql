@@ -29,5 +29,6 @@ imdb.imdb_id
  LEFT JOIN  {{ ref('stg_dbt-project-430308__title') }} as title
  ON imdb.imdb_id = title.tconst
  WHERE title.titleType LIKE "movie"
+ OR title.titleType LIKE "videoGame"
  AND runtime >= 75
  AND imdb_votes > 500
