@@ -1,4 +1,8 @@
-#diviser les spoken languages diviser les productions countries diviser les genres diviser les productions company
+/*
+Table avec toutes les colonnes, on split genre, language, prod, pays prod et on fait 
+les selections pour un DS défini.
+
+*/
 
 SELECT 
 imdb.imdb_id
