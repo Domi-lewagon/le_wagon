@@ -32,3 +32,4 @@ imdb.imdb_id
  OR title.titleType LIKE "videoGame"
  AND runtime >= 75
  AND imdb_votes > 500
+AND release_date > "1983-01-01" AND release_date < "2023-12-31"
