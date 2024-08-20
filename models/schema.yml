@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: dbt-project-430308
+    schema: movies_project
+    tables:
+      - name: imdb_join_long_films
