@@ -5,3 +5,4 @@ sources:
     schema: movies_project
     tables:
       - name: imdb_join_long_films
+      - name: title
