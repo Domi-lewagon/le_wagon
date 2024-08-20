@@ -29,7 +29,9 @@ imdb.imdb_id
  LEFT JOIN  {{ ref('stg_dbt-project-430308__title') }} as title
  ON imdb.imdb_id = title.tconst
  WHERE title.titleType LIKE "movie"
- OR title.titleType LIKE "videoGame"
  AND runtime >= 75
  AND imdb_votes > 500
-AND release_date > "1983-01-01" AND release_date < "2023-12-31"
+AND release_date >= "1983-01-01" 
+AND release_date < "2023-12-31" 
+AND release_date IS NOT NULL
+ORDER BY release_date
