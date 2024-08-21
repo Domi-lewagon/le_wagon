@@ -1,11 +1,11 @@
 
---Les premières requêtes pour avoir premiers insight
+--First with, to get sum of all rows
 WITH total AS (
   SELECT 
     COUNT(imdb_id) AS total_movies
   FROM {{ ref('datequeries') }}
 ),
-
+-- This intermediate for extract year count all rows and get percent 
 intermediate_date AS (SELECT
   EXTRACT(year FROM release_date) AS year,
   COUNT(imdb_id) AS nb_movies,
@@ -18,11 +18,11 @@ GROUP BY year,genre_1
 ORDER BY avg_rate DESC
 )
 
--- creer un case when par decennie
+-- Get year, genre count and create a new column case when for segment all count
 SELECT
 year,
-COUNT(*) AS Movie_Count,
-
+genre_1,
+COUNT(*) AS Movie_Count;
 CASE 
     WHEN year < 1980 THEN 'Pre-80s'
     WHEN year BETWEEN 1980 AND 1989 THEN '80s'
@@ -33,5 +33,5 @@ CASE
     ELSE 'Unknown'
 END AS Decades
 FROM intermediate_date
-GROUP BY Decades, year
+GROUP BY Decades, year,genre_1
 ORDER BY year
