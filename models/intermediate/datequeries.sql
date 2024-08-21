@@ -3,9 +3,8 @@ Table avec toutes les colonnes, on split genre, language, prod, pays prod et on 
 les selections pour un DS défini.
 
 */
-
 SELECT 
-imdb.imdb_id
+DISTINCT(imdb.imdb_id)
 , imdb.title
 , imdb.original_title
 , SPLIT(imdb.genres, ', ')[SAFE_OFFSET(0)] AS genre_1
