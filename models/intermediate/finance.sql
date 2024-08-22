@@ -2,7 +2,10 @@ SELECT
 imdb_id,
 title,
 budget,
-revenue,
+revenue AS box_office,
+ROUND((revenue - budget),2) AS benefice,
+ROUND(((revenue-budget)-budget)/(budget),2) AS ROI,
+imdb_rating,
 imdb_votes,
 release_date,
 startYear,
@@ -22,4 +25,4 @@ WHERE revenue > 1000000
     budget> 100
     AND
     imdb_votes > 10000
-ORDER BY budget DESC
+ORDER BY ROI DESC
