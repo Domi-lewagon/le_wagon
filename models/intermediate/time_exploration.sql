@@ -1,7 +1,6 @@
 --First with, to get sum of all rows
 WITH total AS (
   SELECT 
-  imdb_id,
     COUNT(imdb_id) AS total_movies
   FROM {{ ref('datequeries') }}
 ),
@@ -17,7 +16,7 @@ intermediate_date AS (SELECT
   genre_2
 FROM {{ ref('datequeries') }}
 CROSS JOIN total
-GROUP BY year, month, day, genre_1,genre_2
+GROUP BY year, month, day, genre_1,genre_2,imdb_id
 ORDER BY year,month,day
 )
 -- Get year, genre count and create a new column case when for segment all count
@@ -39,6 +38,6 @@ genre_2,
 nb_movies,
 Percent_total
 FROM intermediate_date
-GROUP BY year,month,day, Decades,genre_1, genre_2,nb_movies,Percent_total
+GROUP BY year,month,day, Decades,genre_1, genre_2,nb_movies,Percent_total,imdb_id
 ORDER BY year
 -------------------------------------------------------------------------------------------------
