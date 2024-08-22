@@ -9,4 +9,4 @@ CASE
     WHEN (runtime) >160  THEN "extra long film"
 END AS runtime_class
 
-FROM {{ ref('datequeries') }}
+FROM {{ ref('finance') }}
