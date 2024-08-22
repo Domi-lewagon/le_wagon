@@ -1,11 +1,13 @@
 --First with, to get sum of all rows
 WITH total AS (
   SELECT 
+  imdb_id,
     COUNT(imdb_id) AS total_movies
   FROM {{ ref('datequeries') }}
 ),
 -- This intermediate for extract year count all rows and get percent 
 intermediate_date AS (SELECT
+  imdb_id,
   EXTRACT(year FROM release_date) AS year,
   EXTRACT(month FROM release_date) AS month,
   EXTRACT(day FROM release_date) AS day,
@@ -20,6 +22,7 @@ ORDER BY year,month,day
 )
 -- Get year, genre count and create a new column case when for segment all count
 SELECT
+imdb_id,
 year,
 month,
 day,
