@@ -2,7 +2,7 @@ SELECT
 imdb_id,
 title,
 runtime,
-revenue,
+box_office,
 budget,
 CASE 
     WHEN (runtime) <80 THEN "short film"
