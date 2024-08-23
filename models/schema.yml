@@ -6,9 +6,3 @@ sources:
     tables:
       - name: imdb_join_long_films
       - name: title
-<<<<<<< HEAD
-      
-     
-=======
-      - name: cpi_inflation_year_index
->>>>>>> 705c162c464ab64c3be5b60d0181a51bc7be03e4
