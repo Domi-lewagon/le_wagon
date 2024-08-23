@@ -7,6 +7,7 @@ WITH total AS (
 -- This intermediate for extract year count all rows and get percent 
 intermediate_date AS (SELECT
   imdb_id,
+  release_date,
   EXTRACT(year FROM release_date) AS year,
   EXTRACT(month FROM release_date) AS month,
   EXTRACT(day FROM release_date) AS day,
@@ -16,12 +17,13 @@ intermediate_date AS (SELECT
   genre_2
 FROM {{ ref('datequeries') }}
 CROSS JOIN total
-GROUP BY year, month, day, genre_1,genre_2,imdb_id
+GROUP BY year, month, day, genre_1,genre_2,imdb_id,release_date
 ORDER BY year,month,day
 )
 -- Get year, genre count and create a new column case when for segment all count
 SELECT
 imdb_id,
+release_date,
 year,
 month,
 day,
@@ -38,6 +40,6 @@ genre_2,
 nb_movies,
 Percent_total
 FROM intermediate_date
-GROUP BY year,month,day, Decades,genre_1, genre_2,nb_movies,Percent_total,imdb_id
+GROUP BY year,month,day, Decades,genre_1, genre_2,nb_movies,Percent_total,imdb_id,release_date
 ORDER BY year
 -------------------------------------------------------------------------------------------------
