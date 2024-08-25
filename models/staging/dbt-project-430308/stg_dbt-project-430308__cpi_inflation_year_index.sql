@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-         CAST(year AS int) AS year,
+         CAST(year AS integer) AS year,
         cpi
 
     from source

@@ -8,3 +8,4 @@ sources:
       - name: title
       - name: cpi_inflation_year_index
       - name: director_analysis_5films
+      - name: inflation
