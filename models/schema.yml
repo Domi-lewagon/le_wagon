@@ -10,3 +10,4 @@ sources:
       - name: director_analysis_5films
       - name: finance_inflation
       - name: TMDB_movie_director
+      - name: with_directors_copy
