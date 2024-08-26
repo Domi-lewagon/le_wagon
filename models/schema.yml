@@ -9,3 +9,5 @@ sources:
       - name: cpi_inflation_year_index
       - name: director_analysis_5films
       - name: finance_inflation
+      - name: TMDB_movie_director
+      - name: with_directors_copy
